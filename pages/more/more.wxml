@@ -1,0 +1,36 @@
+<!--pages/more/more.wxml-->
+<view class='title1'>
+<text>{{title}}</text>
+</view>
+<!--视频-->
+<view wx:for="{{viewbox}}">
+  <view class="card">
+    <view bindtap="onItemClick">
+      <view wx:if="{{item.imageurl==''}}">
+        <image class="image" mode="aspectFill" bindtap='selectview' id="{{item.id}}" src="1.jpg" />
+      </view>
+      <view wx:else>
+        <image class="image" mode="aspectFill" bindtap='selectview' id="{{item.id}}" src="{{item.imageurl}}" />
+      </view>
+      <view class="info">
+        <view class="title">{{item.name}}</view>
+        <view class="upname">作者：{{item.up}}</view>
+        <view class="keycard" bindtap='jump' id='{{item.keycardT}}'>#{{item.keycardT}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<!--文章-->
+    <view wx:for="{{articlebox}}">
+      <view class="card">
+        <view bindtap="onItemClick">
+          <view class="info">
+            <view class="title">{{item.name}}</view>
+            <view class="upname">作者：{{item.up}}</view>
+            <view class="keycard" bindtap='jump' id='{{item.labelt}}'>#{{item.labelt}}</view>
+          </view>
+            <image class="image" mode="aspectFill" bindtap='selecttext' id="{{item.id}}" src="{{item.imageurl}}" />
+          <view>{{item.abstract}}</view>
+        </view>
+      </view>
+    </view>

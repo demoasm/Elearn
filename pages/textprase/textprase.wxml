@@ -1,0 +1,83 @@
+<!--pages/textprase/textprase.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<form bindsubmit='post'>
+  <view class="editor_page">
+    <view class="editor_head">
+      <view class="margin_lr">
+        <view>
+          <text class="editor_input input_title" name="title">{{articleinfo.name}}</text>
+          <view>
+            <text class="editor_input" name="writer">{{articleinfo.up}}</text>
+            <view class="write_time">{{articleinfo.date}}</view>
+          </view>
+        </view>
+        <view class="editor_label">
+          <view class="all_label">
+            <view class="keycard" id="{{articleinfo.labelf}}" bindtap="jump">#{{articleinfo.labelf}}</view>
+            <view class="keycard" id="{{articleinfo.labels}}" bindtap="jump">#{{articleinfo.labels}}</view>
+            <view class="keycard" id="{{articleinfo.labelt}}" bindtap="jump">#{{articleinfo.labelt}}</view>
+          </view>
+        </view>
+        <!--<view class="intro_input">
+          <textarea placeholder="简介" class="editor_intro" name="intro"></textarea>
+        </view>-->
+      </view>
+    </view>
+    <view>
+      <view>
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+      </view>
+    </view>
+
+  </view>
+</form>
+<!-- 功能区 -->
+<view class='function'>
+  <view class='function1'>
+    <view style='display:flex;flex-direction:column '>
+      <image src='../../image/{{iflove}}' style='width:100%' mode="widthFix" bindtap='collection'></image>
+      <view style='font-size:80%;color:rgb(136, 119, 119);'>收藏</view>
+    </view>
+    <view style='display:flex;flex-direction:column '>
+      <image src='../../image/{{iflike}}' style='width:100%' mode="widthFix" bindtap='like'></image>
+      <view style='font-size:80%;color:rgb(136, 119, 119);'>点赞</view>
+    </view>
+  </view>
+  <view style='display:flex;flex-direction:column '>
+    <view style='font-size:80%;color:rgb(136, 119, 119);'>你觉得本章节难么</view>
+    <view class='function2'>
+      <image src='../../image/{{judge1}}' style='width:5%;padding-left: 1em;' mode="widthFix" id='1' bindtap='judge'></image>
+      <image src='../../image/{{judge2}}' style='width:5%;padding-left: 1em;' mode="widthFix" id='2' bindtap='judge'></image>
+      <image src='../../image/{{judge3}}' style='width:5%;padding-left: 1em;' mode="widthFix" id='3' bindtap='judge'></image>
+      <image src='../../image/{{judge4}}' style='width:5%;padding-left: 1em;' mode="widthFix" id='4' bindtap='judge'></image>
+      <image src='../../image/{{judge5}}' style='width:5%;padding-left: 1em;' mode="widthFix" id='5' bindtap='judge'></image>
+      <text style='padding-left:8em;padding-right:2em;font-size:80%;color:rgb(136, 119, 119);'>{{hard}}</text>
+      <view wx:if='{{hardlv>0}}' bindtap='submatjudge' style='height:18px;font-size:80%;margin-top:0px;border-left:3px solid #000;'>提交</view>
+    </view>
+  </view>
+</view>
+
+<!-- 评论区 -->
+<form bindsubmit="formSubmit">
+  <input type="text" name="liuyantext" placeholder='输入留言内容' class="input-style" />
+  <button formType="submit" class="btn" wx:if="{{nickName == empty}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" bindtap='login'>授权登录</button>
+  <button formType="submit" class="btn" wx:else>留言</button>
+  <input type="text" name="nickname" value='{{nickName}}' style="display:none;" />
+  <input type="text" name="headimg" value='{{avatarUrl}}' style="display:none;" /> </form>
+<view wx:for="{{re}}" wx:key="re">
+  <view class="result">{{item.result}}</view>
+</view>
+<view style="text-align:center;font-size:14px;color:#ccc;margin-top:20px;">以下是留言内容</view>
+<view wx:for="{{liuyanlist}}" wx:key="liuyanlist" class="liuyanview">
+  <view class="headimg">
+    <image src="{{item.headimg}}"></image>
+  </view>
+  <view class="nickname_liuyantext">
+    <view class="nickname">{{item.nickname}}
+      <view class="time">{{item.sendtime}}</view>
+    </view>
+    <view class="text">{{item.liuyantext}}</view>
+  </view>
+  <!-- 占位符 -->
+  <view style="width:100%;height:10px;"></view>
+</view>

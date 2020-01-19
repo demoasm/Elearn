@@ -1,0 +1,7 @@
+/* pages/more/more.wxss */
+@import '../viewbox/viewbox.wxss';
+.title1{
+  display: flex;
+  justify-content: center;
+  color: rgb(117, 112, 106);
+}

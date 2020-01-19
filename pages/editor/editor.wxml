@@ -1,0 +1,50 @@
+<form bindsubmit='post'>
+  <view class="editor_page">
+    <view class="editor_head">
+      <view class="margin_lr">
+        <view>
+          <input placeholder="标题" class="editor_input input_title" name="title"></input>
+          <view>
+            <input placeholder="作者" class="editor_input" name="writer"></input>
+            <view class="write_time">{{time}}</view>
+          </view>
+        </view>
+        <view class="editor_label">
+        <text>标签:</text>
+          <view class="all_label">
+            <input class="single_label" name="label1"></input>
+            <input class="single_label" name="label2"></input>
+            <input class="single_label" name="label3"></input>
+          </view>
+        </view>
+        <view class="intro_input">
+          <textarea placeholder="简介" class="editor_intro" name="intro"></textarea>
+        </view>
+      </view>  
+    </view>
+    <view>
+      <view class="article">
+        <view wx:for="{{arr}}" class="each_para">
+          <view wx:if="{{!item.ispic}}" class="item_para">{{item.para}}</view>
+          <view wx:else>
+            <image src="{{item.para}}" class="personal_pic"></image>
+          </view>
+          <view class="button2">
+            <button class="cancel_button" bindtap='deletepara'data-idx="{{index}}">
+              <image src="/image/cancel.png" class="image2"></image>
+            </button>
+          </view>
+        </view>
+      </view>
+      <view class="editor_new">
+        <button class="addpic_button" bindtap="choosepic" >
+          <image src="/image/new.jpg" class="image1"></image>
+        </button>
+        <textarea placeholder="插入文字"  class="new_textarea" name='para' bindblur='newpara' value="{{para}}"></textarea>
+        <button class="finish_button" bindtap="finish">完成</button>
+      </view>
+    </view>
+    
+  </view>
+  <button class="editor_submit" form-type='submit'>发布</button>
+</form>

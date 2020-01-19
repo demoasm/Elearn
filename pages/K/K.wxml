@@ -1,0 +1,20 @@
+<text></text>
+<view class="dropdown">
+    <picker bindchange="bindPickerChange1" value="{{index1}}" range="{{nameArr}}" name="index1">
+      <view class="picker">
+          <text>{{nameArr[index1]}}课</text>
+          <image src="/images/icon/dropdown.png" class="dropdown_icon"></image>
+      </view>
+    </picker>
+    <picker bindchange="bindPickerChange2" value="{{index2}}" range="{{courseArr[index1]}}" name="index2">
+      <view class="picker">
+        <text>{{courseArr[index1][index2]}}</text>
+        <image src="/images/icon/dropdown.png" class="dropdown_icon"></image>
+      </view>
+    </picker>
+</view>
+<view class="divLine"></view>
+<view class="radarContainer">
+  <ec-canvas id="mychart" canvas-id="mychart-radar" ec="{{ecRadar}}"></ec-canvas>
+</view>
+<button class="lookButton" bindtap="navButton">查看章节</button>

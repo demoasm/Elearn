@@ -1,0 +1,21 @@
+<view class="all">
+  <view class="title">
+    <text>学生参与状况排名</text>
+  </view>
+
+  <view class="barContainer">
+    <ec-canvas id="mychart-dom-bar1" canvas-id="mychart-bar1" ec="{{ecBar1}}"></ec-canvas>
+  </view>
+  <view class="chartTitle">总互动量</view>
+  <view class="divLine"></view>
+  <view class="barContainer">
+    <ec-canvas id="mychart-dom-bar2" canvas-id="mychart-bar2" ec="{{ecBar2}}"></ec-canvas>
+  </view>
+  <view class="chartTitle">总阅读量</view>
+  <view class="divLine"></view>
+
+  <view class="barContainer">
+    <ec-canvas id="mychart-dom-bar3" canvas-id="mychart-bar3" ec="{{ecBar3}}"></ec-canvas>
+  </view>
+  <view class="chartTitle">总评论量</view>
+</view>

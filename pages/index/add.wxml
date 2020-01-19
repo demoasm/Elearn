@@ -1,0 +1,32 @@
+<!--pages/index/add.wxml-->
+<import src="../../common/head.wxml" />
+<import src="../../common/foot.wxml" />
+  <view class="container">
+  
+    <view class="page-body">
+      <form catchsubmit="formSubmit" catchreset="formReset">
+      <view style="display:flex;align-items:center;flex-direction:column;margin: 100rpx">
+        <view style='text-align: center;'>
+          <view>申请获取以下权限</view>
+          <text>获得你的公开信息(昵称，头像等)</text>
+        </view>
+        <view class="page-section">
+          <view class="page-section-title" style='color:blcak'>请输入学号，姓名绑定信息</view>
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__bd">
+                <input class="weui-input" name="Number" bindinput="bindKeyInput1" placeholder="例如:201700001" />
+                <input class="weui-input" name="Name" bindinput="bindKeyInput2" placeholder="例如:张三" />
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class="btn-area">
+          <button type="primary" open-type='getUserInfo' lang='zh_CN' bindgetuserinfo='bindGetUserInfo' >绑定</button>
+        </view>
+      </view>
+      </form>
+    </view>
+
+  </view>

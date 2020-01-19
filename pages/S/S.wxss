@@ -1,0 +1,139 @@
+
+.button_swap {
+border: none;
+background-color: #fff;
+width:40%
+}
+.border_text{
+  display: flex;
+  border: 1rpx solid rgb(255, 255, 255); 
+  border-radius: 1rpx;  
+  flex-direction: row;
+  border-width:2px;
+  align-items: center;
+  width: 98%;
+  height: 100%;
+}
+.item_content_container {
+  box-sizing: border-box;
+  width: 700rpx;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+}
+.g_container {
+  width: 750rpx;
+  padding-top: 45rpx;
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  box-sizing: border-box;
+}
+.item_hd_container {
+  width: 100rpx;
+  height: 100rpx;
+}
+.item_container {
+  width: 700rpx;
+  height: 200rpx;
+}
+.button_swap::after{
+  border: none;
+  border-radius: none;
+}
+.text_flash {
+  text-align: center;
+}
+.text_green {
+  color:rgb(13, 158, 20);
+}
+
+.all_button{
+  display: flex;
+  background-color: #fff;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.container_border{
+  background: rgb(255, 255, 255);
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  border: 3rpx solid #58aeca;
+  border-width:3rpx;
+  border-radius: 20rpx;
+  margin-bottom: 35rpx;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  padding-top: 5rpx;
+  padding-bottom: 27rpx
+}
+.container_comment_context{
+  display: flex;
+  flex-direction: column;
+
+}
+.image_right{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-top: 5rpx
+}
+.text_commenter{
+ white-space: nowrap;
+  display: inline-block;
+}
+.button_image{
+  margin-top: 10rpx;
+  margin-right: 10rpx;
+  width: 50rpx;
+  height: 50rpx;
+  border: 10rpx solid #58aeca;
+  border-width:3rpx;
+  border-radius: 10rpx;
+  padding-left: 0rpx;
+  padding-top: 0rpx;
+}
+.item_image {
+ margin-top: 10rpx;
+  margin-right: 10rpx;
+  width: 50rpx;
+  height: 50rpx;
+  /*border: 10rpx solid #58aeca;
+  border-width:3rpx;
+  border-radius: 10rpx;*/   /*有边框会变丑*/
+  padding-left: 0rpx;
+  padding-top: 0rpx;
+}
+
+.border_comment{
+  background: #fff;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  border: 3rpx solid #58aeca;
+  border-width: thin;
+  border-radius: 20rpx;
+  margin-top: 20rpx;
+  margin-bottom: 10rpx;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width:570rpx;
+  height: 100rpx;
+}
+.text_teach_0{
+
+  color: #28a7d1;
+}
+.text_teach_1{
+
+  color: #58aeca;
+}
+.text_teach_2{
+
+  color: #6ec6e4;
+}

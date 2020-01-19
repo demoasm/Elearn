@@ -1,0 +1,90 @@
+<!--pages/viewbox/view.wxml-->
+<import src="head.wxml" />
+<import src="foot.wxml" />
+
+<view class="container">
+  <!--视频区-->
+  <view class="viewbox">
+    <video style='width:100%' id="myVideo" src="{{viewinfo.viewurl}}" bindtimeupdate="update" objectFit="fill" binderror="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls>
+    </video>
+  </view>
+  <view class="btn">
+    <input bindblur="bindInputBlur" type="text" style='width:680rpx;height:25rpx' placeholder="在此处输入弹幕内容" />
+    <view bindtap="bindSendDanmu" formType="submit">
+      <image style='width:50rpx' mode="widthFix" src="../../image/send.png" class="icon"></image>
+    </view>
+  </view>
+  <!--简介区-->
+  <view class="inforlist">
+    <view class="baseinfor">
+      <view class='aaa'>
+        <view class='headimg'>
+          <image src='{{viewinfo.avatarurl}}' class='head_image' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo"></image>
+          <view style='display:flex;flex-direction:column'>
+            <view>作者：{{viewinfo.up}} \n</view>
+            <view>上传时间:{{viewinfo.uptime}}</view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+    <view class="moreinfo">
+      <view style='color:#666'>{{viewinfo.name}}</view>
+      <view style='color:#666;font-size:80%'>{{viewinfo.sample}}</view>
+      <view style='display:flex;flex-direction:row;flex-wrap:wrap;'>
+        <view class="keycard" bindtap='jump' id='{{viewinfo.keycardF}}'>#{{viewinfo.keycardF}}</view>
+        <view class="keycard" bindtap='jump' id='{{viewinfo.keycardS}}'>#{{viewinfo.keycardS}}</view>
+        <view class="keycard" bindtap='jump' id='{{viewinfo.keycardT}}'>#{{viewinfo.keycardT}}</view>
+      </view>
+    </view>
+  </view>
+  <!--功能区-->
+  <view class='function'>
+    <view class='function1'>
+      <view style='display:flex;flex-direction:column '>
+        <image src='../../image/{{iflove}}' style='width:100%' mode="widthFix" bindtap='collection'></image>
+        <view style='font-size:80%;color:rgb(136, 119, 119);'>收藏</view>
+      </view>
+      <view style='display:flex;flex-direction:column '>
+        <image src='../../image/{{iflike}}' style='width:100%' mode="widthFix" bindtap='like'></image>
+        <view style='font-size:80%;color:rgb(136, 119, 119);'>点赞</view>
+      </view>
+    </view>
+    <view style='display:flex;flex-direction:column '>
+      <view style='font-size:80%;color:rgb(136, 119, 119);'>你觉得本章节难么</view>
+      <view class='function2'>
+          <image src='../../image/{{judge1}}' style='width:5%;padding-left: 1em;' mode="widthFix" id='1' bindtap='judge'></image>
+          <image src='../../image/{{judge2}}' style='width:5%;padding-left: 1em;' mode="widthFix" id='2' bindtap='judge'></image>
+          <image src='../../image/{{judge3}}' style='width:5%;padding-left: 1em;' mode="widthFix" id='3' bindtap='judge'></image>
+          <image src='../../image/{{judge4}}' style='width:5%;padding-left: 1em;' mode="widthFix" id='4' bindtap='judge'></image>
+          <image src='../../image/{{judge5}}' style='width:5%;padding-left: 1em;' mode="widthFix" id='5' bindtap='judge'></image>
+          <text style='padding-left:8em;padding-right:2em;font-size:80%;color:rgb(136, 119, 119);'>{{hard}}</text>
+          <view wx:if='{{hardlv>0}}' bindtap='submatjudge' style='height:18px;font-size:80%;margin-top:0px;border-left:3px solid #000;'>提交</view>
+      </view>
+    </view>
+  </view>
+  <!-- 评论区 -->
+  <form bindsubmit="formSubmit">
+    <input type="text" name="liuyantext" placeholder='输入留言内容' class="input-style" />
+    <button formType="submit" class="btn" wx:if="{{nickName == empty}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" bindtap='login'>授权登录</button>
+    <button formType="submit" class="btn" wx:else>留言</button>
+    <input type="text" name="nickname" value='{{nickName}}' style="display:none;" />
+    <input type="text" name="headimg" value='{{avatarUrl}}' style="display:none;" /> </form>
+  <view wx:for="{{re}}" wx:key="re">
+    <view class="result">{{item.result}}</view>
+  </view>
+  <view style="text-align:center;font-size:14px;color:#ccc;margin-top:20px;">以下是留言内容</view>
+  <view wx:for="{{liuyanlist}}" wx:key="liuyanlist" class="liuyanview">
+    <view class="headimg">
+      <image src="{{item.headimg}}"></image>
+    </view>
+    <view class="nickname_liuyantext">
+      <view class="nickname">{{item.nickname}}
+        <view class="time">{{item.sendtime}}</view>
+      </view>
+      <view class="text">{{item.liuyantext}}</view>
+    </view>
+    <!-- 占位符 -->
+    <view style="width:100%;height:10px;"></view>
+  </view>
+</view>

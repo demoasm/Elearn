@@ -1,0 +1,40 @@
+<!--pages/J/J.wxml-->
+  <view class="all_info">
+    <open-data type="userAvatarUrl" class="my_photo"></open-data>
+    <view class="info_wz">
+      <view >
+        <view class="name">{{name}}</view>
+      </view>
+      <view class="info_zyhnj">
+          <view>{{major}}</view>
+          <view class="nj">{{grade}}级</view>
+      </view>
+    </view>
+  </view>
+  <view class="divLine"></view>
+  <view class="title">学习概况</view>
+  
+  <view class="allCharts">
+    <view class="schedule">
+      <view>学习进度</view>
+      <view class="progress-box">
+        <progress percent="{{schedule}}" show-info stroke-width="15"/>
+      </view>
+    </view>
+    <view class="chart-divLine"></view>
+    <view class="chartTitle">相关数据</view>
+    <view class="radarContainer">
+      <ec-canvas id="mychart-radar" canvas-id="mychart1" ec="{{ecRadar}}"></ec-canvas>
+    </view>
+    <view class="chart-divLine"></view>
+    <view class="chartTitle">学习时间轴分布</view>
+    <view class="lineContainer">
+      <ec-canvas id="mychart-line" canvas-id="mychart2" ec="{{ecLine}}"></ec-canvas>
+    </view>
+    <view class="chart-divLine"></view>
+    <view class="chartTitle">章节时间分布</view>
+    <view class="pieContainer">
+      <ec-canvas id="mychart-pie" canvas-id="mychart3" ec="{{ecPie}}"></ec-canvas>
+    </view>
+  </view>
+

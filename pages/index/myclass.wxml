@@ -1,0 +1,17 @@
+<view class='order_process'>
+  <view class='process_wrap' wx:for="{{classinfo}}" wx:key="">
+    <view wx:if="{{item.lv==0}}">
+      <text class='process_title'>{{item.name}}</text>
+    </view>
+    <view wx:elif="{{item.lv==1}}">
+      <text class='process_zhangjie'>{{item.name}}</text>
+    </view>
+    <block wx:else>
+      <text class='process_danyuan'>{{item.name}}</text>
+      <view class='process' bindtap='jump' id='{{item.name}}'>
+        <view class='process_line' style="background:{{item.start}}"></view>
+        <image class='process_icon' src="{{item.icon}}"></image>
+      </view>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,22 @@
+<view class='order_process'>
+  <view class='process_wrap' wx:for="{{classinfo}}" wx:key="">
+    <view wx:if="{{item.lv==0}}">
+      <text class='process_title'>{{item.name}}</text>
+    </view>
+    <view wx:elif="{{item.lv==1}}">
+      <text class='process_zhangjie'>{{item.name}}</text>
+    </view>
+    <block wx:elif="{{item.lv==2}}">
+      <text class='process_danyuanex'>{{item.name}}</text>
+    </block>
+    <block wx:else>
+      <text class='process_class'>{{item.name}}</text>
+      <view class='process'>
+        <image class='process_icon' src="{{item.icon}}" id='{{index}}' data-id='{{item.id}}' data-type='{{item.Type}}' data-icon='{{item.icon}}' bindtap='select'></image>
+      </view>
+    </block>
+  </view>
+</view>
+  <button bindtap="submit" class='btn_submit'>
+    设置勾选课程为必修
+  </button>

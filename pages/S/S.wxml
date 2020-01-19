@@ -1,0 +1,80 @@
+<view class="all_container">
+
+<!--顶部分类导航条--> 
+<view class="top_button">
+  <view class="all_button">
+    <button class="button_swap"  bindtap="button_new">
+     <view hidden="{{value_tap!=0}}" class="text_green">最新 </view>
+     <view hidden="{{value_tap==0}}" >最新 </view>
+    </button>
+    <button class="button_swap"  bindtap="button_course">
+     <view hidden="{{value_tap!=1}}" class="text_green">教材相关 </view>
+     <view hidden="{{value_tap==1}}" >教材相关 </view>
+    </button>
+    <button class="button_swap"  bindtap="button_others"> 
+     <view hidden="{{value_tap!=2}}" class="text_green">其他 </view>
+     <view hidden="{{value_tap==2}}" >其他 </view>
+    </button>
+  </view>
+</view>
+<!--最新部分--> 
+<block >
+ <view hidden="{{value_tap!=0}}">
+ <!--方框样式--> 
+ <label wx:for="{{comment_result}}">
+  <view class="container_border">
+    <!--左边的评论以及评论内容--> 
+    <view class="container_comment_context">
+      <view class="text_commenter">{{item.nickname}}在{{item.homeid}}视频中评论了：
+      </view>
+      <view class="border_comment">
+      <view> {{item.liuyantext}}
+      </view>
+      </view>
+    </view>
+
+    <view class="image_right">
+    
+      <image src='/image/up.png' class='item_image'></image>
+      <image src='/image/delete.png' class='item_image'bindtap='deletecomment' data-sender="{{item.sender}}" data-liuyantext="{{item.liuyantext}}"></image>
+    </view>
+
+ </view>
+ </label>
+ <!--方框样式 结束--> 
+ </view>
+</block>
+<!--教程相关部分--> 
+<block >
+ <view hidden="{{value_tap!=1}}" >
+  <view>
+    <label wx:for="{{classlist_result}}">
+    <view class="text_teach_{{item.lv}}">
+      <text space="emsp" hidden='{{item.lv!=0}}'> {{item.name}}
+      </text>
+      <text space="emsp" hidden='{{item.lv!=1}}'>    {{item.name}}
+      </text>
+      <text space="emsp" hidden='{{item.lv!=2}}'>      {{item.name}}
+      </text>
+    </view>
+    </label>
+  </view>
+
+
+ </view>
+</block>
+ <!--其他部分--> 
+<block >
+<view hidden="{{value_tap!=2}}">
+
+</view>
+ </block>
+<!--底部加载提示条--> 
+<view  hidden="{{value_showall!=false}}" class="text_flash">
+  <text > 正在加载中‧‧‧‧‧‧</text>
+</view>
+<view  hidden="{{value_showall!=true}}" class="text_flash">
+  <text > 已加载全部</text>
+</view>
+
+</view>

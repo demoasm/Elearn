@@ -1,0 +1,5 @@
+<!--more.wxml-->
+ <view style='padding-top:130rpx'>
+ <image src='../../image/start.png' style='width:100%;margin-top:' mode="widthFix" id='1' bindtap='judge'></image>
+  <image src='../../image/start.png' style='width:100%;margin-top:' mode="widthFix" id='1' bindtap='judge'></image>
+ </view>

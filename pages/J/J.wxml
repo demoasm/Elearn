@@ -1,0 +1,32 @@
+<!--pages/J/J.wxml-->
+<view class="title">
+  <text>微机安装与调试课程情况</text>
+</view>
+<view class="allCharts">
+  <view class="chartTitle">必修课完成情况</view>
+  <view class="pieContainer">
+    <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ecPie}}"></ec-canvas>
+  </view>
+  <view class="chartTitle">学习时间分布</view>
+  <view class="lineContainer">
+    <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ecLine}}"></ec-canvas>
+  </view>
+  <view class="chartTitle">章节难度反馈</view>
+  <view class="barContainer">
+    <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ecBar}}"></ec-canvas>
+  </view>
+  <view class="chartTitle">各教程学习时长统计/min</view>
+  <view class="barContainer">
+    <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ecBar2}}"></ec-canvas>
+  </view>
+    <view class="chartTitle">各实验环节耗时排名</view>
+  <view class="barContainer">
+    <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ecBar3}}"></ec-canvas>
+  </view>
+  <view class="chartTitle">各教学点评价</view>
+  <view class="treeContainer">
+    <ec-canvas id="mychart-dom-area" canvas-id="mychart-area" ec="{{ecTree}}"></ec-canvas>
+  </view>
+</view>
+
+

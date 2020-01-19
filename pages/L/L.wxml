@@ -1,0 +1,5 @@
+<!--pages/L/L.wxml-->
+<view class="chartTitle">各教学节点耗时排名</view>
+<view class="barContainer">
+  <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ecBar}}"></ec-canvas>
+</view>

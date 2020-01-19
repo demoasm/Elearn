@@ -1,0 +1,92 @@
+<!--pages/viewbox/viewbox.wxml-->
+<view class="container">
+
+  <view class="page-body">
+    <swiper indicator-dots="true" autoplay="true" interval="10000" duration="500">
+      <block wx:for="{{imageurl}}">
+        <swiper-item>
+          <image  class='swiper-image' src="{{item.url}}" mode='aspectFill' bindtap='selecttext' id="{{item.id}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <!--导航条-->
+    <view class="navbar">
+      <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>
+    </view>
+
+    <!--视频-->
+    <view hidden="{{currentTab!==2}}">
+      <view wx:for="{{viewbox}}">
+        <view class="card">
+          <view bindtap="onItemClick">
+            <view wx:if="{{item.imageurl==''}}">
+              <image class="image" mode="aspectFill" bindtap='selectview' id="{{item.id}}" src="1.jpg" />
+            </view>
+            <view wx:else>
+              <image class="image" mode="aspectFill" bindtap='selectview' id="{{item.id}}" src="{{item.imageurl}}" />
+            </view>
+            <view class="info">
+              <view class="title">{{item.name}}</view>
+              <view class="upname">难度:{{item.difficulty}}</view>
+              <view class="upname">时长:{{item.duration}}</view>
+              <view class="keycard" bindtap='jump' id='{{item.keycardT}}'>#{{item.keycardT}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--文章-->
+    <view hidden="{{currentTab!==1}}">
+      <view wx:for="{{articlebox}}">
+        <view class="card">
+          <view bindtap="onItemClick">
+            <view class="info">
+              <view class="title">{{item.name}}</view>
+              <view class="upname">作者：{{item.up}}</view>
+              <view class="keycard" bindtap='jump' id='{{item.labelt}}'>#{{item.labelt}}</view>
+            </view>
+            <image class="image" mode="aspectFill" bindtap='selecttext' id="{{item.id}}" src="{{item.imageurl}}" />
+            <view class="abstract">{{item.abstract}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!--我的-->
+    <view hidden="{{currentTab!==0}}">
+      <view wx:for="{{viewbox}}">
+        <view class="card">
+          <view bindtap="onItemClick">
+            <view wx:if="{{item.imageurl==''}}">
+              <image class="image" mode="aspectFill" bindtap='selectview' id="{{item.id}}" src="1.jpg" />
+            </view>
+            <view wx:else>
+              <image class="image" mode="aspectFill" bindtap='selectview' id="{{item.id}}" src="{{item.imageurl}}" />
+            </view>
+            <view class="info">
+              <view class="title">{{item.name}}</view>
+              <view class="upname">难度:{{item.difficulty}}</view>
+              <view class="upname">时长:{{item.duration}}</view>
+              <view class="keycard" bindtap='jump' id='{{item.keycardT}}'>#{{item.keycardT}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view wx:for="{{articlebox}}">
+        <view class="card">
+          <view bindtap="onItemClick">
+            <view class="info">
+              <view class="title">{{item.name}}</view>
+              <view class="upname">难度:{{item.difficulty}}</view>
+              <view class="upname">时长:{{item.duration}}</view>
+              <view class="keycard" bindtap='jump' id='{{item.labelt}}'>#{{item.labelt}}</view>
+            </view>
+            <image class="image" mode="aspectFill" bindtap='selecttext' id="{{item.id}}" src="{{item.imageurl}}" />
+            <view class="abstract">{{item.abstract}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

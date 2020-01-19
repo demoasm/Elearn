@@ -1,0 +1,165 @@
+@import '../viewbox/viewbox.wxss';
+@import'../viewbox/view.wxss';
+.editor_intro{
+  height: 350rpx;
+  border-radius: 10rpx;
+  border: 3rpx solid #000000;
+  padding: 6rpx 18rpx;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+  width:100%;
+}
+
+.editor_submit{
+  margin-top: 50rpx;
+  height: 100rpx;
+  position:fixed;
+  bottom:0;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10rpx;
+  font-size: 40rpx;
+  box-sizing: border-box;
+  background-color: rgb(61, 61, 61);
+  color: #fff;
+}
+
+.single_label{
+  margin-left:15rpx;
+  margin-right:15rpx;
+  width:150rpx;
+  height:70rpx;
+  border-radius: 10rpx;
+  border: 3rpx solid #000000;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  text-overflow :ellipsis;     
+}
+
+.all_label{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.editor_label{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+
+.editor_head{
+  background-color: #f8f8f8;
+  padding-bottom: 20rpx;
+}
+
+.editor_input{
+  border-bottom: 3rpx solid #000000;
+  height:75rpx;
+}
+
+.editor_new{
+  background-color:#fff;
+  border-radius:100rpx; 
+  border: 3rpx solid #4e545a;
+  margin-left:30rpx;
+  margin-right:30rpx;
+  margin-top:30rpx;
+  display: flex;
+  flex-direction: row;
+  overflow:hidden;
+  margin-bottom: 100rpx;
+}
+
+.margin_lr{
+  margin-left:20rpx;
+  margin-right:20rpx;
+}
+
+.editor_page{
+  display: flaex;
+  flex-direction: column;
+}
+
+.addpic_button{
+  background-color:#ffffff;
+  margin-top:25rpx;
+  border:none;
+  padding:0;
+  height:75rpx;
+}
+
+.finish_button{
+  background-color:#c1d6e4;
+  height:75rpx;
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color:rgb(115, 129, 150);
+  width:150rpx;
+  font-size: 40rpx;
+}
+
+.image1{
+  
+  height:75rpx;
+  width:75rpx;
+}
+
+.new_textarea{
+  border:3rpx solid hsl(204, 20%, 68%);
+  border-radius: 20rpx;
+  overflow:hidden;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+  height:100rpx;
+  width:300rpx;
+}
+
+.input_title{
+  font-size:50rpx;
+}
+
+.write_time{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.article{
+  margin-top: 30rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+.cancel_button{
+  height:75rpx;
+  width:75rpx;
+  padding: 0;
+  
+}
+
+.image2{
+  height:75rpx;
+  width:75rpx;
+}
+
+.each_para{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top:30rpx;
+}
+
+.item_para{
+  width:auto;
+  display:block;
+  word-break:break-all;
+}
+
+.personal_pic{
+  width:720rpx;
+}

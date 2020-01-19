@@ -1,0 +1,44 @@
+/* pages/J/J.wxss */
+ec-canvas {
+  width: 100%;
+  height: 100%;
+}
+.pieContainer{
+  width: 100%;
+  height: 500rpx;
+  background: #F6F6F6;
+}
+
+.lineContainer{
+  width: 100%;
+  height: 700rpx;
+  background: #F6F6F6;
+}
+
+.barContainer{
+  width: 100%;
+  height: 700rpx;
+  background: #F6F6F6;
+}
+
+.treeContainer{
+  width: 100%;
+  height: 2400rpx;
+  background: #F6F6F6;
+}
+
+.allCharts{
+  display: flex;
+  flex-direction: column;
+  width:100%;
+}
+
+.chartTitle{
+  font-size:35rpx;
+  text-align:center;
+}
+
+.title{
+  font-size:45rpx;
+  text-align:center;
+}

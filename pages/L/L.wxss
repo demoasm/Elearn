@@ -1,0 +1,11 @@
+/* pages/L/L.wxss */
+.chartTitle{
+  font-size:47rpx;
+  text-align:center;
+}
+
+.barContainer{
+  width: 100%;
+  height: 700rpx;
+  background: #F6F6F6;
+}

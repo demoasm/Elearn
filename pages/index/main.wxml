@@ -1,0 +1,39 @@
+<!--pages/index/main.wxml-->
+<view class="my_info">
+  <open-data type="userAvatarUrl" class="my_photo"></open-data>
+  <open-data type="userNickName"></open-data>
+</view>
+
+<view class='more_container'>
+<view wx:if="{{admin}}">
+  <block wx:for-items="{{navList1}}">
+    <view class='more_bd'>
+      <navigator url="{{item.page}}" class='item_container'>
+        <view class='item_hd_container'>
+          <image src='/image/bulb.png' class='item_image'></image>
+        </view>
+        <view class='item_bd_container'>{{item.id}}</view>
+        <view class='item_ft_container'>
+          <image src='/image/navigate.png' class='item_image'></image>
+        </view>
+      </navigator>
+    </view>
+  </block>
+</view>
+<view wx:else>
+  <block wx:for-items="{{navList2}}">
+    <view class='more_bd'>
+      <navigator url="{{item.page}}" class='item_container'>
+        <view class='item_hd_container'>
+          <image src='/image/bulb.png' class='item_image'></image>
+        </view>
+        <view class='item_bd_container'>{{item.id}}</view>
+        <view class='item_ft_container'>
+          <image src='/image/navigate.png' class='item_image'></image>
+        </view>
+      </navigator>
+    </view>
+  </block>
+</view>
+</view>
+

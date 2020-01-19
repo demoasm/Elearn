@@ -1,0 +1,21 @@
+<view class="title">
+  <text>学生名单</text>
+</view>
+<view class="nav form-border-top" >
+  <view>学号</view>
+  <view>姓名</view>
+</view>
+
+<view class="all-stu form-border-bottom">
+  
+ <view wx:for-items="{{stu}}">
+    <navigator url="../N/N?name={{item.name}}&major={{item.major}}&grade={{item.stuNum}}&openid={{item.openid}}">
+      <view class="nav">
+        <view>{{item.stuNum}}</view>
+        <view>{{item.name}}</view>
+        
+      </view>
+      <view class="divLine"></view>
+    </navigator>
+  </view>
+</view>

@@ -1,0 +1,66 @@
+<!--pages/updata/updata.wxml-->
+<view class='feedback_container'>
+<form bindsubmit="formSubmit"  bindreset='formReset'>
+<view style='margin:20rpx'>
+  <input name="name" type='text' class='input_style' placeholder="填写标题"></input>
+  <input name="video_net_src" type='text' class='input_style' value='{{video_net_src}}' maxlength='-1' hidden='true'></input>
+  <input name="image_net_src" type='text' class='input_style' value='{{image_net_src}}' maxlength='-1' hidden='true'></input>
+  <view class='add_image_container'>
+    <view>
+      <view class='image_container'>
+        <view wx:if="{{video_src}}">
+          <image src="{{video_src}}" class="image" mode="aspectFill"></image>
+        </view>
+        <view wx:else bindtap="chooseVideo" data-name='video'>
+          <image src="/image/plus.png" class="image"></image>
+        </view>
+      </view>
+      <view>上传视频</view>
+    </view>
+    <view>
+      <view class='image_container'>
+        <view wx:if="{{image_src1}}">
+          <image src="{{image_src1}}" class="image" mode="aspectFill"></image>
+        </view>
+        <view wx:else bindtap="chooseimage" data-name='image'>
+          <image src="/image/plus.png" class="image"></image>
+        </view>
+      </view>
+      <view>上传封面</view>
+    </view>
+  </view>
+  </view>
+  <view style='margin:20rpx'>
+  <view style='font-size:80%;color:rgb(136, 119, 119);'>一级标签</view>
+    <view style='display:flex; flex-direction:row;flex-wrap:wrap'>
+      <view wx:for='{{cardlist}}'>
+        <view wx:if='{{item.lv==0}}'>
+          <view class='keycard'>#{{item.name}}</view>
+        </view>
+      </view>
+    </view>
+  <view style='font-size:80%;color:rgb(136, 119, 119);'>二级标签</view> 
+    <view style='display:flex; flex-direction:row;flex-wrap:wrap'>
+      <view wx:for='{{cardlist}}'>
+        <view wx:if='{{item.lv==1}}'>
+          <view class='keycard'>#{{item.name}}</view>
+        </view>
+      </view>
+    </view>
+ <view style='font-size:80%;color:rgb(136, 119, 119);'>三级标签</view>
+    <view style='display:flex; flex-direction:row;flex-wrap:wrap'>
+      <view wx:for='{{cardlist}}'>
+        <view wx:if='{{item.lv==2}}'>
+          <view class='keycard'>#{{item.name}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <button formType="submit" class='btn_submit'>
+    提交
+  </button>
+  <button formType="reset" class='btn_submit button_danger'>
+    清空
+  </button>
+</form>
+</view>

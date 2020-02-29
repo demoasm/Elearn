@@ -52,7 +52,7 @@ Page({
                   emphasis: {
                     shadowBlur: 10,
                     shadowOffsetX: 0,
-                    shadowColor: 'rgba(0, 2, 2, 0.3)'
+                    shadowColor: 'rgba(0, 1, 2, 0.3)'
                   }
                 }
               }]

@@ -34,7 +34,7 @@ Page({
             for (var i in pieArr) {
               pieArr[i].value = parseInt(pieArr[i].value);
             }
-            //console.log(pieArr);
+            console.log(pieArr);
             var pieOption = {
               backgroundColor: "#F6F6F6",
               color: ["#37A2DA", "#32C5E9", "#67E0E3", "#91F2DE", "#FFDB5C", "#FF9F7F"],

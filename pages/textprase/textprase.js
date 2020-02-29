@@ -48,7 +48,7 @@ Page({
     wx.request({
       url: GetText,
       data: {
-        id: 1
+        id: 28
       },
       success: function (res1) {
         console.log(res1.data);

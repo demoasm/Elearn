@@ -1,7 +1,7 @@
 /* pages/ParseEditor/ParseEditor.wxss */
 @import "../../common/weui.wxss";
-@import "./assets/iconfont.wxss"
-
+@import "./assets/iconfont.wxss";
+@import "../updata/updata.wxss";
 .wrapper {
   padding: 5px;
 }

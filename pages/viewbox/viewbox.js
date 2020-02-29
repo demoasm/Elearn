@@ -74,7 +74,7 @@ Page({
     })
   },
   selecttext: function (e) {
-    console.log("发生视频选择时间");
+    console.log("发生文章选择时间");
     console.log(e.currentTarget.id);
     var id = e.currentTarget.id;
     wx.navigateTo({

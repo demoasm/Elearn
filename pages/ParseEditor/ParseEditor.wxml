@@ -1,59 +1,118 @@
 <!--pages/ParseEditor/ParseEditor.wxml-->
-<import src="../../common/head.wxml" />
-<import src="../../common/foot.wxml" />
+<view class='feedback_container'>
+  <form bindsubmit="formSubmit" bindreset='formReset'>
+    <view style='margin:20rpx'>
+      <input name="name" type='text' class='input_style' placeholder="填写标题"></input>
+      <input name="abstract" type='text' class='input_style' placeholder="简介"></input>
+      <input name="up" type='text' class='input_style' placeholder="作者"></input>
+      <input name="duration" type='text' class='input_style' placeholder="建议时长"></input>
+      <input name="difficulty" type='text' class='input_style' placeholder="预估难度"></input>
+    </view>
+    <view class='image_container'>
+      <view wx:if="{{image_src1}}">
+        <image src="{{image_src1}}" class="image" mode="aspectFill"></image>
+      </view>
+      <view wx:else bindtap="chooseimage" data-name='image'>
+        <image src="/image/plus.png" class="image"></image>
+      </view>
+    </view>
+    <view>上传封面</view>
 
-<view class="container">
-  <!-- <template is="head" data="{{title: 'editor'}}"/> -->
-  <view class="page-body">
-    <view class='wrapper'>
-      <view class='toolbar' bindtap="format">
-        <i class="iconfont icon-zitijiacu {{formats.bold ? 'ql-active' : ''}}" data-name="bold"></i>
-        <i class="iconfont icon-zitixieti {{formats.italic ? 'ql-active' : ''}}" data-name="italic"></i>
-        <i class="iconfont icon-zitixiahuaxian {{formats.underline ? 'ql-active' : ''}}" data-name="underline"></i>
-        <i class="iconfont icon-zitishanchuxian {{formats.strike ? 'ql-active' : ''}}" data-name="strike"></i>
-        <i class="iconfont icon-zuoduiqi {{formats.align === 'left' ? 'ql-active' : ''}}" data-name="align" data-value="left"></i>
-        <i class="iconfont icon-juzhongduiqi {{formats.align === 'center' ? 'ql-active' : ''}}" data-name="align" data-value="center"></i>
-        <i class="iconfont icon-youduiqi {{formats.align === 'right' ? 'ql-active' : ''}}" data-name="align" data-value="right"></i>
-        <i class="iconfont icon-zuoyouduiqi {{formats.align === 'justify' ? 'ql-active' : ''}}" data-name="align" data-value="justify"></i>
-        <i class="iconfont icon-line-height {{formats.lineHeight ? 'ql-active' : ''}}" data-name="lineHeight" data-value="2"></i>
-        <i class="iconfont icon-Character-Spacing {{formats.letterSpacing ? 'ql-active' : ''}}" data-name="letterSpacing" data-value="2em"></i>
-        <i class="iconfont icon-722bianjiqi_duanqianju {{formats.marginTop ? 'ql-active' : ''}}" data-name="marginTop" data-value="20px"></i>
-        <i class="iconfont icon-723bianjiqi_duanhouju {{formats.micon-previewarginBottom ? 'ql-active' : ''}}" data-name="marginBottom" data-value="20px"></i>
-        <i class="iconfont icon-clearedformat" bindtap="removeFormat"></i>
-        <i class="iconfont icon-font {{formats.fontFamily ? 'ql-active' : ''}}" data-name="fontFamily" data-value="Pacifico"></i>
-        <i class="iconfont icon-fontsize {{formats.fontSize === '24px' ? 'ql-active' : ''}}" data-name="fontSize" data-value="24px"></i>
+    <view class="page-body">
+      <view class='wrapper'>
+        <view class='toolbar' bindtap="format">
+          <i class="iconfont icon-zitijiacu {{formats.bold ? 'ql-active' : ''}}" data-name="bold"></i>
+          <i class="iconfont icon-zitixieti {{formats.italic ? 'ql-active' : ''}}" data-name="italic"></i>
+          <i class="iconfont icon-zitixiahuaxian {{formats.underline ? 'ql-active' : ''}}" data-name="underline"></i>
+          <i class="iconfont icon-zitishanchuxian {{formats.strike ? 'ql-active' : ''}}" data-name="strike"></i>
+          <i class="iconfont icon-zuoduiqi {{formats.align === 'left' ? 'ql-active' : ''}}" data-name="align" data-value="left"></i>
+          <i class="iconfont icon-juzhongduiqi {{formats.align === 'center' ? 'ql-active' : ''}}" data-name="align" data-value="center"></i>
+          <i class="iconfont icon-youduiqi {{formats.align === 'right' ? 'ql-active' : ''}}" data-name="align" data-value="right"></i>
+          <i class="iconfont icon-zuoyouduiqi {{formats.align === 'justify' ? 'ql-active' : ''}}" data-name="align" data-value="justify"></i>
+          <i class="iconfont icon-line-height {{formats.lineHeight ? 'ql-active' : ''}}" data-name="lineHeight" data-value="2"></i>
+          <i class="iconfont icon-Character-Spacing {{formats.letterSpacing ? 'ql-active' : ''}}" data-name="letterSpacing" data-value="2em"></i>
+          <i class="iconfont icon-722bianjiqi_duanqianju {{formats.marginTop ? 'ql-active' : ''}}" data-name="marginTop" data-value="20px"></i>
+          <i class="iconfont icon-723bianjiqi_duanhouju {{formats.micon-previewarginBottom ? 'ql-active' : ''}}" data-name="marginBottom" data-value="20px"></i>
+          <i class="iconfont icon-clearedformat" bindtap="removeFormat"></i>
+          <i class="iconfont icon-font {{formats.fontFamily ? 'ql-active' : ''}}" data-name="fontFamily" data-value="Pacifico"></i>
+          <i class="iconfont icon-fontsize {{formats.fontSize === '24px' ? 'ql-active' : ''}}" data-name="fontSize" data-value="24px"></i>
 
-        <i class="iconfont icon-text_color {{formats.color === '#0000ff' ? 'ql-active' : ''}}" data-name="color" data-value="#0000ff"></i>
-        <i class="iconfont icon-fontbgcolor {{formats.backgroundColor === '#00ff00' ? 'ql-active' : ''}}" data-name="backgroundColor" data-value="#00ff00"></i>
+          <i class="iconfont icon-text_color {{formats.color === '#0000ff' ? 'ql-active' : ''}}" data-name="color" data-value="#0000ff"></i>
+          <i class="iconfont icon-fontbgcolor {{formats.backgroundColor === '#00ff00' ? 'ql-active' : ''}}" data-name="backgroundColor" data-value="#00ff00"></i>
 
-        <i class="iconfont icon-date" bindtap="insertDate"></i>
-        <i class="iconfont icon--checklist" data-name="list" data-value="check"></i>
-        <i class="iconfont icon-youxupailie {{formats.list === 'ordered' ? 'ql-active' : ''}}" data-name="list" data-value="ordered"></i>
-        <i class="iconfont icon-wuxupailie {{formats.list === 'bullet' ? 'ql-active' : ''}}" data-name="list" data-value="bullet"></i>
-        <i class="iconfont icon-undo" bindtap="undo"></i>
-        <i class="iconfont icon-redo" bindtap="redo"></i>
+          <i class="iconfont icon-date" bindtap="insertDate"></i>
+          <i class="iconfont icon--checklist" data-name="list" data-value="check"></i>
+          <i class="iconfont icon-youxupailie {{formats.list === 'ordered' ? 'ql-active' : ''}}" data-name="list" data-value="ordered"></i>
+          <i class="iconfont icon-wuxupailie {{formats.list === 'bullet' ? 'ql-active' : ''}}" data-name="list" data-value="bullet"></i>
+          <i class="iconfont icon-undo" bindtap="undo"></i>
+          <i class="iconfont icon-redo" bindtap="redo"></i>
 
-        <i class="iconfont icon-outdent" data-name="indent" data-value="-1"></i>
-        <i class="iconfont icon-indent" data-name="indent" data-value="+1"></i>
-        <i class="iconfont icon-fengexian" bindtap="insertDivider"></i>
-        <i class="iconfont icon-charutupian" bindtap="insertImage"></i>
-        <i class="iconfont icon-format-header-1 {{formats.header === 1 ? 'ql-active' : ''}}" data-name="header" data-value="{{1}}"></i>
-        <i class="iconfont icon-zitixiabiao {{formats.script === 'sub' ? 'ql-active' : ''}}" data-name="script" data-value="sub"></i>
-        <i class="iconfont icon-zitishangbiao {{formats.script === 'super' ? 'ql-active' : ''}}" data-name="script" data-value="super"></i>
-        <!-- <i class="iconfont icon-quanping"></i> -->
-        <i class="iconfont icon-shanchu" bindtap="clear"></i>
-        <i class="iconfont icon-direction-rtl {{formats.direction === 'rtl' ? 'ql-active' : ''}}" data-name="direction" data-value="rtl"></i>
+          <i class="iconfont icon-outdent" data-name="indent" data-value="-1"></i>
+          <i class="iconfont icon-indent" data-name="indent" data-value="+1"></i>
+          <i class="iconfont icon-fengexian" bindtap="insertDivider"></i>
+          <i class="iconfont icon-charutupian" bindtap="insertImage"></i>
+          <i class="iconfont icon-format-header-1 {{formats.header === 1 ? 'ql-active' : ''}}" data-name="header" data-value="{{1}}"></i>
+          <i class="iconfont icon-zitixiabiao {{formats.script === 'sub' ? 'ql-active' : ''}}" data-name="script" data-value="sub"></i>
+          <i class="iconfont icon-zitishangbiao {{formats.script === 'super' ? 'ql-active' : ''}}" data-name="script" data-value="super"></i>
+          <!-- <i class="iconfont icon-quanping"></i> -->
+          <i class="iconfont icon-shanchu" bindtap="clear"></i>
+          <i class="iconfont icon-direction-rtl {{formats.direction === 'rtl' ? 'ql-active' : ''}}" data-name="direction" data-value="rtl"></i>
+
+        </view>
+
+        <editor id="editor" class="ql-container" placeholder="{{placeholder}}" showImgSize showImgToolbar showImgResize bindstatuschange="onStatusChange" read-only="{{readOnly}}" bindready="onEditorReady" bindinput="bindinput">
+        </editor>
 
       </view>
-
-      <editor id="editor" class="ql-container" placeholder="{{placeholder}}" showImgSize showImgToolbar showImgResize bindstatuschange="onStatusChange"  read-only="{{readOnly}}" bindready="onEditorReady" bindinput="bindinput">
-      </editor>
-
-      <!-- <view>
-        <button bindtap="readOnlyChange">{{readOnly ? '可写':'只读'}}</button>
-      </view> -->
     </view>
-  </view>
 
-  <template is="foot" />
+
+    <view style='margin:20rpx'>
+      <view style='font-size:80%;color:rgb(136, 119, 119);'>一级标签</view>
+      <view style='display:flex; flex-direction:row;flex-wrap:wrap'>
+        <view wx:for='{{cardlist}}'>
+          <view wx:if='{{item.lv==0}}'>
+            <view wx:if='{{item.select==0}}'>
+              <view class='keycard' id='{{index}} 'bindtap='select1'>#{{item.name}}</view>
+            </view>
+            <view wx:else>
+              <view class='keycard' style = 'background:rgb(199,0,0)' id='{{index}} 'bindtap='select1'>#{{item.name}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view style='font-size:80%;color:rgb(136, 119, 119);'>二级标签</view>
+      <view style='display:flex; flex-direction:row;flex-wrap:wrap'>
+        <view wx:for='{{cardlist}}'>
+          <view wx:if='{{item.lv==1}}'>
+            <view wx:if='{{item.select==0}}'>
+              <view class='keycard' id='{{index}} 'bindtap='select2'>#{{item.name}}</view>
+            </view>
+            <view wx:else>
+              <view class='keycard' style = 'background:rgb(199,0,0)'>#{{item.name}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view style='font-size:80%;color:rgb(136, 119, 119);'>三级标签</view>
+      <view style='display:flex; flex-direction:row;flex-wrap:wrap'>
+        <view wx:for='{{cardlist}}'>
+          <view wx:if='{{item.lv==2}}'>
+            <view wx:if='{{item.select==0}}'>
+              <view class='keycard' id='{{index}} 'bindtap='select3'>#{{item.name}}</view>
+            </view>
+            <view wx:else>
+              <view class='keycard' style = 'background:rgb(199,0,0)'>#{{item.name}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <button formType="submit" class='btn_submit'>
+      提交
+    </button>
+    <button formType="reset" class='btn_submit button_danger'>
+      清空
+    </button>
+  </form>
 </view>

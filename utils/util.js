@@ -52,5 +52,6 @@ function compareVersion(v1, v2) {
 }
 
 module.exports = {
-  compareVersion
+  compareVersion,
+  formatTime
 }

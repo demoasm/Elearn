@@ -1,5 +1,5 @@
 // pages/editor/editor.js
-var app=getApp();
+var app = getApp();
 var util = require('../../utils/util.js');
 var GetMoreText = require('../../config.js').GetMoreText;
 var SeeLL = require('../../config.js').SeeLL;
@@ -11,8 +11,7 @@ var UnLike = require('../../config.js').UnLike;
 var Judge = require('../../config.js').Judge;
 var SendLiuYan = require('../../config.js').SendLiuYan;
 var ReadLiuYan = require('../../config.js').ReadLiuYan;
-
-
+var WxParse = require('../../wxParse/wxParse.js');
 Page({
 
   /**
@@ -51,9 +50,11 @@ Page({
         id: option.id
       },
       success: function (res1) {
-        var textinfo = JSON.parse(res1.data.text);
-        console.log(textinfo);
+        //var textinfo = JSON.parse(res1.data.text);
+        //console.log(textinfo);
         console.log(res1.data);
+        var article = res1.data.text;
+        article_content: WxParse.wxParse('article', 'html', article, that, 5);
         wx.getStorage({
           key: 'userInfo',
           success: function(res) {
@@ -62,7 +63,7 @@ Page({
               intime: intime,
               nickName: res.data.nickName,
               avatarUrl: res.data.avatarUrl,
-              text: textinfo
+              //text: textinfo
             })
             that.readliuyanlist();
           },
